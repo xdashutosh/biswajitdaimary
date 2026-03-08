@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+import qrCode from '../assets/qr_code.png';
+import appStoreBtn from '../assets/app_store_btn.png';
+import playStoreBtn from '../assets/play_store_btn.png';
 
 const SOCIAL_URLS = [
     'https://twitter.com/BiswajitDaimary',
@@ -13,7 +16,7 @@ const Footer = () => {
     return (
         <footer className="bg-white pt-20 md:pt-32 pb-12 md:pb-16 border-t-8 border-primary-orange overflow-hidden">
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-20 mb-16 md:mb-24">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 md:gap-10 mb-16 md:mb-24">
                     <div className="col-span-1">
                         <h2 className="text-2xl md:text-3xl font-black text-primary-dark mb-6 tracking-tighter uppercase">BISWAJIT <br /><span className="text-primary-orange">DAIMARY</span></h2>
                         <p className="text-gray-500 mb-8 leading-relaxed font-medium text-sm md:text-base">
@@ -71,6 +74,27 @@ const Footer = () => {
                         <p className="text-primary-orange font-black text-base md:text-lg tracking-tight">
                             office@biswajitdaimary.in
                         </p>
+                    </div>
+
+                    <div className="col-span-1">
+                        <h4 className="text-xs md:text-sm font-black text-primary-dark mb-6 md:mb-8 uppercase tracking-[0.2em] relative inline-block">
+                            Download App
+                            <span className="absolute bottom-0 left-0 w-1/2 h-1 bg-primary-orange mt-2"></span>
+                        </h4>
+                        <div className="flex flex-col space-y-4">
+                            <div className="bg-gray-50 p-3 rounded-2xl inline-block w-fit shadow-inner group hover:shadow-md transition-all duration-300">
+                                <img src={qrCode} alt="Scan to Download" className="w-24 h-24 md:w-28 md:h-28 grayscale group-hover:grayscale-0 transition-all duration-500" />
+                                <p className="text-[10px] text-gray-400 mt-2 text-center font-bold tracking-tight">SCAN TO DOWNLOAD</p>
+                            </div>
+                            <div className="flex flex-col space-y-2">
+                                <a href="#" className="transform hover:scale-105 transition-transform duration-200">
+                                    <img src={appStoreBtn} alt="Download on App Store" className="h-14 md:h-16 w-auto object-contain" />
+                                </a>
+                                <a href="#" className="transform hover:scale-105 transition-transform duration-200">
+                                    <img src={playStoreBtn} alt="Get it on Google Play" className="h-14 md:h-16 w-auto object-contain" />
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

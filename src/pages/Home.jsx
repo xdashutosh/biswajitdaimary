@@ -8,6 +8,7 @@ import StatsSection from '../components/StatsSection';
 import Gallery from '../components/Gallery';
 import ParallaxBanner from '../components/ParallaxBanner';
 import SocialFeed from '../components/SocialFeed';
+import AppDownloadSection from '../components/AppDownloadSection';
 
 function Home() {
     const [email, setEmail] = useState('');
@@ -32,6 +33,7 @@ function Home() {
             <Gallery />
             <NewsSection />
             <SocialFeed />
+            <AppDownloadSection />
 
             {/* Quote Section */}
             <section className="py-16 md:py-24 bg-white">
