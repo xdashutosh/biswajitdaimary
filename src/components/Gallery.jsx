@@ -21,7 +21,7 @@ const Gallery = () => {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12 md:mb-16">
                     <h3 className="text-primary-orange text-xs md:text-sm font-bold uppercase tracking-widest mb-2">Moments</h3>
-                    <h2 className="text-3xl md:text-4xl font-bold text-primary-dark mb-4">Gallery in Motion</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-primary-dark mb-4">Gallery in Motion</h2>
                     <div className="w-16 md:w-20 h-1 bg-primary-orange mx-auto"></div>
                 </div>
 

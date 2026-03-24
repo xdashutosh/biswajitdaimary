@@ -2,18 +2,22 @@ import React, { useState } from 'react';
 import HeroSlider from '../components/Hero';
 import ImpactSection from '../components/ImpactSection';
 import AboutSection from '../components/AboutSection';
+import RunningProjects from '../components/RunningProjects';
 import NewsSection from '../components/NewsSection';
 import GovernanceSection from '../components/GovernanceSection';
 import StatsSection from '../components/StatsSection';
-import Gallery from '../components/Gallery';
+import HomeGallery from '../components/HomeGallery';
 import ParallaxBanner from '../components/ParallaxBanner';
 import SocialFeed from '../components/SocialFeed';
 import AppDownloadSection from '../components/AppDownloadSection';
 import daimary_assembly from '../assets/daimary_assembly.png';
 import SEO from '../components/SEO';
+import { useScrollRevealChildren } from '../hooks/useScrollReveal';
+import BannerCarousel from '../components/BannerCarousel';
 
 function Home() {
     const [email, setEmail] = useState('');
+    const revealRef = useScrollRevealChildren();
 
     const handleSubscribe = () => {
         if (!email || !email.includes('@')) {
@@ -36,65 +40,66 @@ function Home() {
             <h1 className="sr-only">Biswajit Daimary | Speaker of Assam Legislative Assembly</h1>
             <HeroSlider />
             <StatsSection />
+            <BannerCarousel />
             <ImpactSection />
             <AboutSection />
+            <RunningProjects />
             <ParallaxBanner />
+            <HomeGallery />
             <GovernanceSection />
-            <Gallery />
-            <NewsSection />
             <SocialFeed />
             <AppDownloadSection />
 
-            {/* Quote Section */}
-            <section className="py-16 md:py-24 bg-white">
+            {/* Merged Vision & Mission Section (UI inspired by Image 2) */}
+            <section ref={revealRef} className="py-3 md:py-5 bg-white relative overflow-hidden">
                 <div className="container mx-auto px-4 text-center">
-                    <div className="max-w-4xl mx-auto bg-orange-50 p-10 md:p-20 rounded-[2.5rem] md:rounded-[4rem] border-2 border-primary-orange/20 relative overflow-hidden">
-                        <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary-orange/10 rounded-full blur-3xl"></div>
-                        <span className="text-6xl md:text-8xl text-primary-orange opacity-40 font-serif leading-none italic block mb-4">"</span>
-                        <h2 className="text-2xl md:text-5xl font-black text-primary-dark italic leading-tight mb-8">
-                            Our vision is a developed Assam where every citizen has equal opportunity and lives with dignity.
+                    <div className="max-w-5xl mx-auto">
+                        <p className="text-primary-orange font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs mb-6 animate-on-scroll">
+                            What We Stand For
+                        </p>
+                        <h2 className="text-3xl md:text-4xl lg:text-2xl font-normal italic text-primary-dark leading-[1.15] mb-8 animate-on-scroll font-serif">
+                            "Our vision is a developed Assam where every citizen has equal opportunity and lives with dignity."
                         </h2>
-                        <div className="flex items-center justify-center space-x-3 md:space-x-4">
+                        <div className="flex items-center justify-center space-x-3 md:space-x-4 mb-10 animate-on-scroll">
                             <div className="w-8 md:w-12 h-1 bg-primary-orange"></div>
-                            <p className="text-primary-orange font-black uppercase tracking-widest text-sm md:text-lg text-nowrap">Biswajit Daimary</p>
+                            <p className="text-primary-orange font-normal tracking-[0.3em] text-[10px] md:text-xs uppercase font-serif">Biswajit Daimary</p>
                             <div className="w-8 md:w-12 h-1 bg-primary-orange"></div>
                         </div>
-                    </div>
-                </div>
-            </section>
 
-            {/* Newsletter Section */}
-            <section className="py-16 md:py-24 bg-gray-900 overflow-hidden relative">
-                <div className="absolute inset-0 z-0 opacity-20">
-                    <img
-                        src={daimary_assembly}
-                        alt="Background: Assam Legislative Assembly Building in Dispur"
-                        className="w-full h-full object-cover grayscale"
-                    />
-                </div>
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="bg-primary-orange rounded-[2.5rem] md:rounded-[3rem] p-10 md:p-24 flex flex-col lg:flex-row items-center justify-between text-white shadow-3xl overflow-hidden relative">
-                        <div className="z-10 text-center lg:text-left mb-10 lg:mb-0 max-w-lg">
-                            <h2 className="text-3xl md:text-5xl font-black mb-4 md:mb-6 leading-tight">JOIN OUR MISSION</h2>
-                            <p className="text-white/80 text-base md:text-lg">Receive direct updates on legislative decisions and local initiatives.</p>
-                        </div>
-                        <div className="z-10 w-full lg:w-auto flex flex-col sm:flex-row gap-4">
-                            <input
-                                type="email"
-                                placeholder="name@email.com"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
-                                className="bg-white text-primary-dark rounded-full px-6 md:px-8 py-4 md:py-5 w-full lg:w-96 focus:outline-none shadow-inner text-sm md:text-base"
-                            />
+                        {/* Interaction Area (Inspired by Image 2 pill style) */}
+                        <div className="max-w-xl mx-auto flex flex-col gap-4 animate-on-scroll">
+                            <div className="relative">
+                                <input
+                                    type="email"
+                                    placeholder="Please Enter Your Email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
+                                    className="w-full bg-white text-primary-dark border-2 border-gray-200 rounded-full px-8 py-5 md:py-4 focus:outline-none focus:border-primary-orange/30 shadow-xl text-center text-lg font-medium placeholder:text-gray-200"
+                                />
+                            </div>
+                            
                             <button
                                 onClick={handleSubscribe}
-                                className="bg-primary-dark text-white px-8 md:px-12 py-4 md:py-5 rounded-full font-black hover:bg-black transition-all shadow-2xl hover:scale-105 active:scale-95 uppercase tracking-widest text-xs md:text-sm cursor-pointer whitespace-nowrap"
+                                className="w-full bg-primary-orange text-white rounded-full py-5 md:py-4 font-normal tracking-[0.3em] text-[10px] uppercase hover:bg-black transition-all shadow-xl hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                             >
-                                Subscribe
+                                JOIN OUR MISSION
                             </button>
                         </div>
+                        
+                        <p className="mt-6 mb-5 text-gray-400 text-xs md:text-xs max-w-lg mx-auto animate-on-scroll">
+                            Receive direct updates on legislative decisions and local initiatives for a better Assam.
+                        </p>
                     </div>
+                </div>
+                
+                {/* Subtle background element */}
+                <div className="absolute top-0 left-0 w-full h-full -z-10 opacity-[0.03] pointer-events-none">
+                    <img
+                        src={daimary_assembly}
+                        alt=""
+                        className="w-full h-full object-cover grayscale"
+                    />
                 </div>
             </section>
         </>

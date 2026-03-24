@@ -10,6 +10,7 @@ const Biography = lazy(() => import('./pages/Biography'));
 const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 const NewsPage = lazy(() => import('./pages/NewsPage'));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 const ElectionsPage = lazy(() => import('./pages/ElectionsPage'));
 const ParliamentPage = lazy(() => import('./pages/ParliamentPage'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -27,9 +28,24 @@ const PageLoader = () => (
 // Scroll to top on route change
 const ScrollToTop = () => {
   const { pathname } = useLocation();
+  
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    // Disable default browser scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    
+    // Immediate scroll
+    window.scrollTo(0, 0);
+    
+    // Robustness: ensure scroll happens after layout
+    const timeoutId = setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }, 0);
+    
+    return () => clearTimeout(timeoutId);
   }, [pathname]);
+  
   return null;
 };
 
@@ -48,6 +64,7 @@ function App() {
                 <Route path="/gallery" element={<GalleryPage />} />
                 <Route path="/news" element={<NewsPage />} />
                 <Route path="/projects" element={<ProjectsPage />} />
+                <Route path="/projects/:projectId" element={<ProjectDetail />} />
                 <Route path="/elections" element={<ElectionsPage />} />
                 <Route path="/parliament" element={<ParliamentPage />} />
                 <Route path="/contact" element={<Contact />} />

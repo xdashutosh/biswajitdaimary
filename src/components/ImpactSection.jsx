@@ -6,39 +6,68 @@ import { Construction, Trophy, ArrowRight, Landmark } from 'lucide-react';
 const ImpactSection = () => {
     const containerRef = useScrollRevealChildren();
 
+    const items = [
+        {
+            title: "Development Projects",
+            desc: "Exploring mission-critical infrastructure, water, and healthcare initiatives transforming BTR.",
+            icon: <Construction className="w-8 h-8 md:w-10 md:h-10 text-white" />,
+            color: "bg-primary-dark",
+            borderColor: "border-primary-dark",
+            path: "/projects"
+        },
+        {
+            title: "Parliamentary Record",
+            desc: "A comprehensive archive of speeches, debates, and questions raised in the Rajya Sabha.",
+            icon: <Landmark className="w-8 h-8 md:w-10 md:h-10 text-white" />,
+            color: "bg-primary-orange",
+            borderColor: "border-primary-orange",
+            path: "/parliament"
+        },
+        {
+            title: "Election Mandate",
+            desc: "A journey through electoral history, winning margins, and public support over two decades.",
+            icon: <Trophy className="w-8 h-8 md:w-10 md:h-10 text-white" />,
+            color: "bg-primary-dark",
+            borderColor: "border-primary-dark",
+            path: "/elections"
+        }
+    ];
+
     return (
-        <section className="py-16 md:py-24 bg-gray-50">
+        <section className="py-16 md:py-32 bg-white">
             <div className="container mx-auto px-4">
-                <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-                    <div className="bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] shadow-xl border border-gray-100 group hover:border-primary-orange transition-all relative overflow-hidden animate-on-scroll hover-lift">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary-orange opacity-5 rounded-bl-full group-hover:opacity-10 transition-opacity"></div>
-                        <Construction className="w-12 h-12 md:w-16 md:h-16 text-primary-orange mb-6 md:mb-8 group-hover:scale-110 transition-transform" />
-                        <h3 className="text-2xl md:text-3xl font-black text-primary-dark mb-4 uppercase tracking-tighter">Development Projects</h3>
-                        <p className="text-gray-500 font-medium mb-8 md:mb-10 leading-relaxed text-base md:text-lg">Exploring mission-critical infrastructure, water, and healthcare initiatives transforming BTR.</p>
-                        <Link to="/projects" className="flex items-center gap-3 text-primary-orange font-black uppercase tracking-widest text-[10px] md:text-sm group-hover:gap-5 transition-all">
-                            View All Projects <ArrowRight className="w-5 h-5" />
-                        </Link>
-                    </div>
-
-                    <div className="bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] shadow-xl border border-gray-100 group hover:border-primary-orange transition-all relative overflow-hidden animate-on-scroll animate-delay-1 hover-lift">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary-orange opacity-5 rounded-bl-full group-hover:opacity-10 transition-opacity"></div>
-                        <Landmark className="w-12 h-12 md:w-16 md:h-16 text-primary-orange mb-6 md:mb-8 group-hover:scale-110 transition-transform" />
-                        <h3 className="text-2xl md:text-3xl font-black text-primary-dark mb-4 uppercase tracking-tighter">Parliamentary Record</h3>
-                        <p className="text-gray-500 font-medium mb-8 md:mb-10 leading-relaxed text-base md:text-lg">A comprehensive archive of speeches, debates, and questions raised in the Rajya Sabha.</p>
-                        <Link to="/parliament" className="flex items-center gap-3 text-primary-orange font-black uppercase tracking-widest text-[10px] md:text-sm group-hover:gap-5 transition-all">
-                            Explore Speeches <ArrowRight className="w-5 h-5" />
-                        </Link>
-                    </div>
-
-                    <div className="bg-white p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] shadow-xl border border-gray-100 group hover:border-primary-orange transition-all relative overflow-hidden animate-on-scroll animate-delay-2 hover-lift">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary-orange opacity-5 rounded-bl-full group-hover:opacity-10 transition-opacity"></div>
-                        <Trophy className="w-12 h-12 md:w-16 md:h-16 text-primary-orange mb-6 md:mb-8 group-hover:scale-110 transition-transform" />
-                        <h3 className="text-2xl md:text-3xl font-black text-primary-dark mb-4 uppercase tracking-tighter">Election Mandate</h3>
-                        <p className="text-gray-500 font-medium mb-8 md:mb-10 leading-relaxed text-base md:text-lg">A journey through electoral history, winning margins, and public support over two decades.</p>
-                        <Link to="/elections" className="flex items-center gap-3 text-primary-orange font-black uppercase tracking-widest text-[10px] md:text-sm group-hover:gap-5 transition-all">
-                            Explore Performance <ArrowRight className="w-5 h-5" />
-                        </Link>
-                    </div>
+                <div ref={containerRef} className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 items-stretch">
+                    {items.map((item, index) => (
+                        <div key={index} className="flex flex-col group animate-on-scroll h-full">
+                            <div className="flex-grow">
+                                <div className="flex items-start gap-6 mb-8">
+                                    {/* Icon Box */}
+                                    <div className={`${item.color} w-16 h-16 md:w-20 md:h-20 shrink-0 flex items-center justify-center rounded-sm shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                                        {item.icon}
+                                    </div>
+                                    
+                                    {/* Text Content */}
+                                    <div className="flex flex-col">
+                                        <h3 className="text-xl md:text-[22px] font-normal text-primary-dark mb-3 tracking-tight font-serif">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-gray-500 font-medium leading-relaxed text-sm md:text-[13px] mb-4 line-clamp-3">
+                                            {item.desc}
+                                        </p>
+                                        <Link 
+                                            to={item.path} 
+                                            className="text-primary-orange font-bold text-xs uppercase tracking-[0.2em] hover:text-primary-dark transition-colors flex items-center gap-2 group/btn"
+                                        >
+                                            Read More <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {/* Bottom Divider */}
+                            <div className={`w-full h-0.5 ${item.borderColor.replace('border-', 'bg-')} opacity-20 group-hover:opacity-100 transition-opacity duration-500 mt-auto`}></div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

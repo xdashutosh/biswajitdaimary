@@ -9,8 +9,9 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import hero_assembly from '../assets/hero/hero_assembly.png';
+import hero_assembly from '../assets/hero/assemblybanner.png';
 import hero_culture from '../assets/hero/hero_culture.png';
+import diamaryimg from '../assets/hero/diamary_poster3.png';
 
 const HeroSlider = () => {
     const navigate = useNavigate();
@@ -18,35 +19,27 @@ const HeroSlider = () => {
     const slides = [
         {
             id: 1,
-            title: "BISWAJIT DAIMARY",
-            subtitle: "Dedicated to the People of Assam",
+            title: "Biswajit Daimary",
+            subtitle: "Welcome to Politician TNC",
             desc: "From a humble student leader to the 17th Speaker of the Assam Legislative Assembly. A journey of resilience, peace, and progress.",
-            image: "https://media.assettype.com/english-sentinelassam%2Fimport%2Fh-upload%2F2020%2F11%2F12%2F172609-biswajit-daimary-resigns-from-bpf.webp?w=480&dpr=2&auto=format%2Ccompress&fit=max&q=85",
+            image: diamaryimg,
             cta: "Biography",
             ctaPath: "/about"
         },
         {
             id: 2,
-            title: "STRENGTHENING DEMOCRACY",
+            title: "Strengthening Democracy",
             subtitle: "Speaker, Assam Legislative Assembly",
             desc: "Spearheading the digitization of the assembly and ensuring transparent governance for a stronger future.",
             image: hero_assembly,
             cta: "House Proceedings",
             ctaPath: "/parliament"
         },
-        {
-            id: 3,
-            title: "VOICE OF THE GRASSROOTS",
-            subtitle: "Empowering the Communities",
-            desc: "Working tirelessly for the welfare of the Bodo community and every citizen from the tea gardens to the hills.",
-            image: hero_culture,
-            cta: "Latest Initiatives",
-            ctaPath: "/projects"
-        }
+        
     ];
 
     return (
-        <section className="relative h-[600px] md:h-[700px] overflow-hidden bg-primary-dark">
+        <section className="relative h-[400px] md:h-[450px] lg:h-[520px] overflow-hidden bg-[#f4f6f8] font-sans">
             <Swiper
                 modules={[Autoplay, EffectFade, Navigation, Pagination]}
                 effect="fade"
@@ -56,49 +49,53 @@ const HeroSlider = () => {
                 navigation
                 pagination={{ clickable: true }}
                 loop={true}
-                className="h-full"
+                className="h-full hero-swiper"
             >
                 {slides.map((slide) => (
                     <SwiperSlide key={slide.id}>
-                        <div className="relative h-full flex items-center">
-                            <div className="absolute inset-0 z-0">
-                                <img
-                                    src={slide.image}
-                                    alt={`Biswajit Daimary - ${slide.title} - ${slide.subtitle}`}
-                                    className="w-full h-full object-contain object-center transition-transform duration-700"
-                                    loading="lazy"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-primary-dark via-primary-dark/60 to-transparent"></div>
+                        <div className="relative h-full w-full flex items-center">
+                            {/* Right Side Background (Image without color overlay) */}
+                            <div className="absolute inset-0 z-0 flex">
+                                <div className="w-full h-full relative">
+                                    <img
+                                        src={slide.image}
+                                        alt={`Biswajit Daimary - ${slide.title}`}
+                                        className="absolute inset-0 w-full h-full object-cover object-center"
+                                    />
+                                </div>
                             </div>
 
-                            <div className="container mx-auto px-4 z-10">
-                                <div className="max-w-2xl">
-                                    <h2 className="text-primary-orange text-sm md:text-xl font-bold uppercase tracking-[0.2em] mb-3 md:mb-4">
+
+                            {/* Content Container */}
+                            <div className="container mx-auto px-6 md:px-12 z-20 h-full flex items-center">
+                                <div className="max-w-md md:max-w-lg w-full md:w-[45%] lg:w-[40%] pt-16 md:pt-10">
+                                    <h3 className="text-red-500 font-bold tracking-[0.2em] text-xs md:text-sm mb-3 md:mb-4 uppercase inline-block bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm">
                                         {slide.subtitle}
-                                    </h2>
-                                    <h2 className="text-3xl md:text-8xl font-black mb-4 md:mb-6 leading-tight uppercase drop-shadow-2xl text-white">
-                                        {slide.title.includes('DAIMARY') ? (
-                                            <>BISWAJIT <br /> <span className="text-primary-orange">DAIMARY</span></>
+                                    </h3>
+                                    
+                                    <h2 className="text-3xl md:text-5xl lg:text-[56px] font-normal text-white leading-[1.1] mb-4 md:mb-6 tracking-tight font-serif drop-shadow-lg">
+                                        {slide.title.toLowerCase().includes('daimary') ? (
+                                            <>Biswajit <br /> <span className="text-white">Daimary</span></>
                                         ) : (
                                             slide.title
                                         )}
                                     </h2>
-                                    <p className="text-base md:text-xl text-white/90 mb-6 md:mb-8 max-w-lg leading-relaxed font-light drop-shadow-lg">
+                                    
+                                    <p className="text-white/90 text-sm md:text-base lg:text-lg mb-8 md:mb-10 leading-relaxed font-medium max-w-[90%] md:max-w-[95%] drop-shadow-sm">
                                         {slide.desc}
                                     </p>
-                                    <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                                    
+                                    <div className="flex flex-col sm:flex-row gap-4">
                                         <button
                                             onClick={() => navigate(slide.ctaPath)}
-                                            className="bg-primary-orange text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-bold hover:bg-orange-600 transition-all shadow-xl hover:scale-105 active:scale-95 cursor-pointer text-center"
+                                            className="group flex items-center justify-center gap-3 bg-transparent border border-white/60 text-white px-8 py-3.5 rounded-sm font-medium hover:bg-white hover:text-[#1c2e4a] transition-all duration-300 w-fit"
                                         >
                                             {slide.cta}
+                                            <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                            </svg>
                                         </button>
-                                        <button
-                                            onClick={() => window.open('https://www.youtube.com/results?search_query=Assam+Legislative+Assembly+Live', '_blank')}
-                                            className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-bold hover:bg-white/20 transition-all cursor-pointer text-center"
-                                        >
-                                            Watch Live
-                                        </button>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -107,10 +104,10 @@ const HeroSlider = () => {
                 ))}
             </Swiper>
 
-            {/* Scroll Indicator */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 hidden md:block">
-                <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center p-2">
-                    <div className="w-1 h-2 bg-primary-orange rounded-full animate-scroll-indicator"></div>
+            {/* Scroll Indicator positioned slightly right to avoid the blue shape on mobile if needed, but middle is fine */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 hidden md:block">
+                <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center p-2">
+                    <div className="w-1 h-2 bg-red-500 rounded-full animate-scroll-indicator"></div>
                 </div>
             </div>
         </section>

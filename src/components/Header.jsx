@@ -13,7 +13,7 @@ const NavItem = ({ title, items, isActiveSub }) => {
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => setIsOpen(false)}
         >
-            <button className={`flex items-center gap-2 text-xs font-black uppercase tracking-[0.15em] transition-colors cursor-pointer ${isOpen ? 'text-primary-orange' : 'text-primary-dark hover:text-primary-orange'}`}>
+            <button className={`flex items-center gap-2 text-sm font-semibold capitalize tracking-wide transition-colors cursor-pointer ${isOpen ? 'text-primary-orange' : 'text-primary-dark hover:text-primary-orange'}`}>
                 {title} <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
             </button>
 
@@ -29,8 +29,8 @@ const NavItem = ({ title, items, isActiveSub }) => {
                                 <item.icon className="w-5 h-5" />
                             </div>
                             <div>
-                                <p className="text-[10px] font-black uppercase tracking-widest text-primary-dark">{item.label}</p>
-                                <p className="text-[9px] text-gray-400 font-bold uppercase tracking-tighter mt-0.5">{item.sub}</p>
+                                <p className="text-[12px] font-semibold capitalize tracking-wide text-primary-dark">{item.label}</p>
+                                <p className="text-[11px] text-gray-500 font-medium tracking-wide mt-0.5">{item.sub}</p>
                             </div>
                         </Link>
                     ))}
@@ -76,13 +76,6 @@ const Header = () => {
                 { label: 'Parliament', sub: 'Rajya Sabha Record', path: '/parliament', icon: Landmark },
                 { label: 'Election Mandate', sub: 'Voter Trust', path: '/elections', icon: Trophy },
             ]
-        },
-        {
-            title: 'Connect',
-            items: [
-                { label: 'Press & News', sub: 'Latest Updates', path: '/news', icon: Newspaper },
-                { label: 'Get In Touch', sub: 'Office Contact', path: '/contact', icon: Mail },
-            ]
         }
     ];
 
@@ -92,13 +85,13 @@ const Header = () => {
 
     return (
         <>
-            <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b-4 border-primary-orange transition-all duration-300">
-                <div className="container mx-auto px-4 flex justify-between items-center h-20 md:h-24">
+            <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b-2 border-primary-orange transition-all duration-300">
+                <div className="container mx-auto px-4 flex justify-between items-center h-16 md:h-20">
                     <Link to="/" className="flex items-center space-x-3 group">
-                        <img src="/logo.svg" alt="BD Logo" className="w-10 h-10 md:w-12 md:h-12 rounded-2xl shadow-lg group-hover:rotate-6 transition-transform" />
+                        <img src="/logo.svg" alt="BD Logo" className="w-8 h-8 md:w-10 md:h-10 rounded-2xl shadow-lg group-hover:rotate-6 transition-transform" />
                         <div>
-                            <span className="text-lg md:text-xl font-black text-primary-dark leading-none tracking-tighter block">BISWAJIT DAIMARY</span>
-                            <p className="text-[8px] md:text-[10px] text-primary-orange font-black uppercase tracking-[0.2em] mt-1">Speaker, Assam Legislative Assembly</p>
+                            <span className="text-xl font-bold text-primary-dark leading-tight tracking-tight block">Biswajit Daimary</span>
+                            <p className="text-xs text-primary-orange font-semibold tracking-wide mt-1">Speaker, Assam Legislative Assembly</p>
                         </div>
                     </Link>
 
@@ -106,9 +99,15 @@ const Header = () => {
                     <nav className="hidden lg:flex space-x-12 h-full items-center">
                         <Link
                             to="/"
-                            className={`text-xs font-black uppercase tracking-[0.15em] transition-colors ${isActive('/') ? 'text-primary-orange' : 'text-primary-dark hover:text-primary-orange'}`}
+                            className={`text-sm font-semibold capitalize tracking-wide transition-colors ${isActive('/') ? 'text-primary-orange' : 'text-primary-dark hover:text-primary-orange'}`}
                         >
                             Home
+                        </Link>
+                        <Link
+                            to="/news"
+                            className={`text-sm font-semibold capitalize tracking-wide transition-colors ${isActive('/news') ? 'text-primary-orange' : 'text-primary-dark hover:text-primary-orange'}`}
+                        >
+                            Press & News
                         </Link>
                         {navCategories.map((cat, idx) => (
                             <NavItem
@@ -122,7 +121,7 @@ const Header = () => {
 
                     <div className="hidden lg:flex items-center space-x-6">
                         <LanguageTranslator />
-                        <Link to="/contact" className="bg-primary-dark text-white px-8 py-3 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-black transition-all shadow-xl hover:scale-105 active:scale-95">
+                        <Link to="/contact" className="bg-primary-dark text-white px-8 py-3 rounded-full font-semibold text-sm capitalize tracking-wide hover:bg-black transition-all shadow-xl hover:scale-105 active:scale-95">
                             Connect
                         </Link>
                     </div>
@@ -143,12 +142,12 @@ const Header = () => {
                 <div className="lg:hidden fixed inset-0 z-[100] bg-white animate-in slide-in-from-right duration-500">
                     <div className="flex flex-col h-screen bg-white">
                         {/* Menu Header Area (Matches Header Height) */}
-                        <div className="h-20 md:h-24 border-b-4 border-primary-orange flex justify-between items-center px-4 bg-white sticky top-0 z-[110]">
+                        <div className="h-16 md:h-20 border-b-2 border-primary-orange flex justify-between items-center px-4 bg-white sticky top-0 z-[110]">
                             <Link to="/" className="flex items-center space-x-3" onClick={() => setIsMobileMenuOpen(false)}>
-                                <img src="/logo.svg" alt="BD Logo" className="w-10 h-10 rounded-2xl shadow-lg" />
+                                <img src="/logo.svg" alt="BD Logo" className="w-8 h-8 rounded-2xl shadow-lg" />
                                 <div>
-                                    <span className="text-sm font-black text-primary-dark tracking-tighter uppercase leading-none block">BISWAJIT DAIMARY</span>
-                                    <p className="text-[7px] text-primary-orange font-black uppercase tracking-[0.2em] mt-1">Speaker, Assam</p>
+                                    <span className="text-lg font-bold text-primary-dark tracking-tight leading-tight block">Biswajit Daimary</span>
+                                    <p className="text-xs text-primary-orange font-semibold tracking-wide mt-1">Speaker, Assam</p>
                                 </div>
                             </Link>
                             <div className="flex items-center gap-4">
@@ -169,11 +168,35 @@ const Header = () => {
                                 <Link
                                     to="/"
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className={`text-6xl font-black uppercase tracking-tighter transition-colors ${isActive('/') ? 'text-primary-orange' : 'text-primary-dark'}`}
+                                    className={`text-4xl font-bold capitalize tracking-tight transition-colors ${isActive('/') ? 'text-primary-orange' : 'text-primary-dark'}`}
                                 >
                                     Home
                                 </Link>
                                 <div className={`h-1.5 w-16 mt-4 rounded-full ${isActive('/') ? 'bg-primary-orange' : 'bg-transparent'}`}></div>
+                            </div>
+
+                            {/* Press & News Link */}
+                            <div>
+                                <Link
+                                    to="/news"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className={`text-4xl font-bold capitalize tracking-tight transition-colors ${isActive('/news') ? 'text-primary-orange' : 'text-primary-dark'}`}
+                                >
+                                    Press & News
+                                </Link>
+                                <div className={`h-1.5 w-16 mt-4 rounded-full ${isActive('/news') ? 'bg-primary-orange' : 'bg-transparent'}`}></div>
+                            </div>
+
+                            {/* Connect Link */}
+                            <div>
+                                <Link
+                                    to="/contact"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className={`text-4xl font-bold capitalize tracking-tight transition-colors ${isActive('/contact') ? 'text-primary-orange' : 'text-primary-dark'}`}
+                                >
+                                    Connect
+                                </Link>
+                                <div className={`h-1.5 w-16 mt-4 rounded-full ${isActive('/contact') ? 'bg-primary-orange' : 'bg-transparent'}`}></div>
                             </div>
 
                             {/* Nav Categories */}
@@ -181,7 +204,7 @@ const Header = () => {
                                 {navCategories.map((cat, idx) => (
                                     <div key={idx} className="space-y-10">
                                         <div className="flex items-center gap-4">
-                                            <span className="text-[12px] font-black text-gray-300 uppercase tracking-[0.4em]">{cat.title}</span>
+                                            <span className="text-sm font-semibold text-gray-400 capitalize tracking-widest">{cat.title}</span>
                                             <div className="h-px flex-1 bg-gray-100"></div>
                                         </div>
                                         <div className="grid grid-cols-1 gap-8">
@@ -196,8 +219,8 @@ const Header = () => {
                                                         <item.icon className="w-6 h-6" />
                                                     </div>
                                                     <div className="flex flex-col">
-                                                        <span className={`text-lg font-black uppercase tracking-widest ${isActive(item.path) ? 'text-primary-orange' : 'text-primary-dark'}`}>{item.label}</span>
-                                                        <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-0.5">{item.sub}</span>
+                                                        <span className={`text-lg font-semibold capitalize tracking-wide ${isActive(item.path) ? 'text-primary-orange' : 'text-primary-dark'}`}>{item.label}</span>
+                                                        <span className="text-xs text-gray-500 font-medium capitalize tracking-wide mt-0.5">{item.sub}</span>
                                                     </div>
                                                     <ChevronRight className="w-5 h-5 ml-auto text-gray-200 group-hover:text-primary-orange group-hover:translate-x-1 transition-all" />
                                                 </Link>
@@ -213,12 +236,12 @@ const Header = () => {
                             <Link
                                 to="/contact"
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="w-full bg-primary-dark text-white py-6 rounded-3xl font-black flex items-center justify-center gap-4 shadow-2xl hover:bg-black transition-all uppercase tracking-[0.2em] text-sm"
+                                className="w-full bg-primary-dark text-white py-6 rounded-3xl font-bold flex items-center justify-center gap-4 shadow-2xl hover:bg-black transition-all capitalize tracking-wide text-base"
                             >
-                                <span>LET'S CONNECT</span>
+                                <span>Let's Connect</span>
                                 <ChevronRight className="w-5 h-5" />
                             </Link>
-                            <div className="mt-8 flex justify-between px-2 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">
+                            <div className="mt-8 flex justify-between px-2 text-xs font-medium text-gray-400 capitalize tracking-wider">
                                 <Link to="/privacy" className="hover:text-primary-orange">Privacy Policy</Link>
                                 <Link to="/terms" className="hover:text-primary-orange">Terms & Conditions</Link>
                             </div>

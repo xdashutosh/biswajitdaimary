@@ -16,12 +16,12 @@ const ParallaxBanner = () => {
 
             <div className="container mx-auto px-4 relative z-10 text-center text-white">
                 <div ref={ref} className="animate-on-scroll animate-scale">
-                    <h2 className="text-2xl md:text-6xl font-black mb-6 md:mb-8 leading-tight text-white uppercase tracking-tighter">
+                    <h2 className="text-2xl md:text-6xl font-normal mb-6 md:mb-8 leading-tight text-white uppercase  font-serif">
                         "FOR A PROSPEROUS AND <br className="hidden md:block" /> <span className="text-primary-orange">PEACEFUL ASSAM</span>"
                     </h2>
                     <div className="flex justify-center items-center space-x-4">
                         <div className="w-8 md:w-12 h-1 bg-primary-orange"></div>
-                        <p className="text-xs md:text-xl font-bold uppercase tracking-widest text-primary-orange">Our Commitment</p>
+                        <p className="text-xs md:text-xl font-normal font-serif uppercase tracking-[0.2em] text-primary-orange">Our Commitment</p>
                         <div className="w-8 md:w-12 h-1 bg-primary-orange"></div>
                     </div>
                 </div>

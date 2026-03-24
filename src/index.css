@@ -12,6 +12,8 @@ html {
   --color-primary-dark: #1a2a4a;
   --color-accent-orange: #ffab40;
   --font-inter: "Inter", sans-serif;
+  --font-signature: "Caveat", cursive;
+  --font-serif: "Lora", serif;
   --color-white: #fff;
 }
 

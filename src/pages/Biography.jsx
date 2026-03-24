@@ -1,7 +1,15 @@
 import React from 'react';
 import SEO from '../components/SEO';
 import { useScrollReveal, useScrollRevealChildren } from '../hooks/useScrollReveal';
-import { BookOpen, GraduationCap, Users, Award, Landmark, Globe, Heart, Shield, Building2 } from 'lucide-react';
+import { BookOpen, GraduationCap, Users, Award, Landmark, Building2, Shield, Heart, Globe, Calendar } from 'lucide-react';
+import portraitImg from '../assets/daimary_portrait.png';
+import bodoCultureImg from '../assets/daimary_bodo_culture.png';
+import teaGardenImg from '../assets/daimary_tea_garden.png';
+import meetingImg from '../assets/daimary_meeting.png';
+import waterSchemeImg from '../assets/rural_water_scheme.png';
+import assemblyImg from '../assets/daimary_assembly.png';
+import officialEventImg from '../assets/official_event_daimary.png';
+import biographyHeaderImg from '../assets/bigraphy_img.png';
 
 const Biography = () => {
     const revealRef = useScrollReveal();
@@ -12,44 +20,51 @@ const Biography = () => {
         {
             year: '1971',
             title: 'Birth and Roots',
-            content: 'Born on 4 February 1971 in Suagpur village, Baksa district, Assam. Hailing from a modest background, his father was a dedicated mahout (elephant handler).',
-            icon: Heart
+            content: 'Born on February 4, 1971, in Suagpur village, located in the Baksa district of Assam. Coming from a humble background, he was raised by his father, a dedicated mahout who managed elephants, which instilled in him values of hard work and connection to nature from an early age.',
+            icon: Heart,
+            image: portraitImg
         },
         {
             year: '1988 - 2001',
             title: 'Youth & Student Activism',
-            content: 'A pivotal decade of leadership within the All Bodo Students\' Union (ABSU). Served as General Secretary and President of Sanja Defeli Anchalik Committee, and later as President of Kamrup District Committee. Culminated as Assistant General Secretary of the ABSU Central Committee.',
-            icon: Users
+            content: 'During the transformative period from 1988 to 2001, he emerged as a powerful voice in the student movement. He served in several key leadership positions within the All Bodo Students\' Union (ABSU), including General Secretary and President of the Sanja Defeli Anchalik Committee. His commitment to the cause of the Bodo people saw him rise to the Presidency of the Kamrup District Committee and eventually serve as the Assistant General Secretary of the ABSU Central Committee.',
+            icon: Users,
+            image: bodoCultureImg
         },
         {
             year: '1991 - 1996',
             title: 'Early Career as Educator',
-            content: 'Before entering electoral politics, he served as a teacher at U.N. Brahma Girls M.E. School, fostering social awareness and youth empowerment in the community.',
-            icon: GraduationCap
+            content: 'From 1991 to 1996, before his full-time immersion into politics, he dedicated himself to the field of education. As a teacher at U.N. Brahma Girls M.E. School, he not only imparted knowledge but also worked tirelessly to foster social awareness and empower the youth within his community, laying the groundwork for his future in public service.',
+            icon: GraduationCap,
+            image: teaGardenImg
         },
         {
             year: '2001',
             title: 'First Legislative Victory',
-            content: 'Contested and won the Assam Assembly election as an Independent candidate from Tamulpur constituency, marking his debut as a Member of the Legislative Assembly (MLA).',
-            icon: Landmark
+            content: 'In 2001, he made his mark in electoral politics by contesting the Assam Assembly election from the Tamulpur constituency. Running as an Independent candidate, he secured a historic victory, marking his debut as a Member of the Legislative Assembly (MLA) and beginning his long-standing commitment to representing the people of Assam.',
+            icon: Landmark,
+            image: meetingImg
         },
         {
             year: '2006 - 2008',
             title: 'Empowering Artisans',
-            content: 'Served as Chairman of ARTFED (Assam Apex Weavers and Artisans Cooperative Federation), promoting handloom heritage and rural employment for local artisans.',
-            icon: Award
+            content: 'Between 2006 and 2008, he took on the role of Chairman of ARTFED (Assam Apex Weavers and Artisans Cooperative Federation). In this capacity, he was instrumental in promoting the rich handloom heritage of the state and creating sustainable rural employment opportunities for local weavers and artisans, strengthening the cooperative movement in Assam.',
+            icon: Award,
+            image: waterSchemeImg
         },
         {
             year: '2008 - 2020',
             title: 'Voice in Rajya Sabha',
-            content: 'Elected twice to the Rajya Sabha. Served on critical parliamentary committees including Transport, Tourism & Culture, Railways, and Chemicals & Fertilizers.',
-            icon: Building2
+            content: 'Spanning over a decade from 2008 to 2020, he served two terms as a Member of Parliament in the Rajya Sabha. During his tenure, he was an active participant in numerous critical parliamentary committees, including those overseeing Transport, Tourism & Culture, Railways, and Chemicals & Fertilizers, where he advocated for the interests of the Northeast region on a national platform.',
+            icon: Building2,
+            image: assemblyImg
         },
         {
             year: '2021',
             title: 'Unanimous Speaker',
-            content: 'After joining the BJP in 2020, he won the Panery seat by a record margin and was elected unanimously as the 17th Speaker of the Assam Legislative Assembly.',
-            icon: Shield
+            content: 'In 2021, following a record-breaking victory in the Panery seat after joining the BJP in 2020, he achieved a new milestone in his career. He was elected unanimously as the 17th Speaker of the Assam Legislative Assembly. In this prestigious role, he continues to uphold the democratic values of the house while guiding legislative proceedings with fairness and vision.',
+            icon: Shield,
+            image: officialEventImg
         }
     ];
 
@@ -96,90 +111,123 @@ const Biography = () => {
                 type="Person"
             />
             {/* Header Section */}
-            <section className="bg-primary-dark py-16 md:py-32 text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-primary-orange opacity-5 blur-3xl -mr-48 -mt-48 transition-all duration-1000"></div>
-                <div className="container mx-auto px-4 relative z-10 text-center">
-                    <h1 className="text-4xl md:text-8xl font-black mb-6 tracking-tighter text-white">
-                        BIOGRAPHY
+            <section className="relative h-24 md:h-28 lg:h-32 flex items-center justify-center overflow-hidden">
+                {/* Background Image with Opacity */}
+                <div 
+                    className="absolute inset-0 z-0"
+                    style={{
+                        backgroundImage: `url(${biographyHeaderImg})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center 45%',
+                        opacity: 0.85
+                    }}
+                ></div>
+                
+                {/* Overlay for better text contrast - Lightened */}
+                <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/40 to-primary-dark/60 z-10"></div>
+
+                <div className="container mx-auto px-4 relative z-20 text-center">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal font-serif mb-2 tracking-tight text-white drop-shadow-xl">
+                        Biography
                     </h1>
-                    <div className="w-16 md:w-24 h-2 bg-primary-orange mx-auto mb-6"></div>
-                    <p className="text-sm md:text-xl text-primary-orange font-black uppercase tracking-[0.3em]">A Legacy of Resilience</p>
+                    <div className="w-12 md:w-16 h-1 bg-primary-orange mx-auto mb-2 rounded-full shadow-lg"></div>
+                    <p className="text-[10px] md:text-xs text-white font-bold tracking-[0.3em] uppercase drop-shadow-md">A Legacy of Resilience</p>
                 </div>
             </section>
 
             {/* Main Content */}
-            <section className="py-16 md:py-32 bg-white">
-                <div className="container mx-auto px-4">
-                    <div className="flex flex-col lg:flex-row gap-12 md:gap-20">
-                        {/* Sidebar */}
-                        <aside className="w-full lg:w-1/3">
-                            <div className="lg:sticky lg:top-32 space-y-12">
-                                <div ref={revealRef} className="relative animate-on-scroll animate-fade-left">
-                                    <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary-orange/5 rounded-full blur-3xl"></div>
-                                    <img
-                                        src="https://newslivetv.com/wp-content/uploads/2021/02/Assam-Biswajit-Daimary-to-be-BJP-candidate-for-Rajya-Sabha-by-polls.jpg"
-                                        alt="Biswajit Daimary"
-                                        className="w-full rounded-[2.5rem] md:rounded-[3rem] shadow-3xl border-[10px] md:border-[20px] border-orange-50 relative z-10"
-                                        loading="lazy"
-                                    />
+            <section className="py-8 md:py-8 bg-white">
+                <div className="container mx-auto px-4 max-w-6xl">
+                    {/* Intro */}
+                    <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16" ref={revealRef}>
+                        <h2 className="text-2xl md:text-3xl font-normal font-serif text-primary-dark mb-3 leading-[1.15]">
+                            From Mahout's Son to <span className="italic">Speaker</span>
+                        </h2>
+                        <p className="text-gray-600 leading-relaxed text-sm md:text-[13px] font-medium opacity-90">
+                            The life story of Biswajit Daimary is one of exceptional perseverance and vision. From his roots in Suagpur to the halls of the Parliament, his journey reflects the aspirations of millions in Assam.
+                        </p>
+                    </div>
+
+                    {/* Timeline Redesign */}
+                    <div ref={timelineRef} className="relative space-y-8 md:space-y-0">
+                        {/* Vertical line */}
+                        <div className="absolute left-[18px] md:left-[100px] top-0 bottom-0 w-0.5 bg-gray-200 hidden sm:block"></div>
+                        
+                        {timelineData.map((item, idx) => (
+                            <div key={idx} className="relative flex flex-col sm:flex-row items-start group animate-on-scroll">
+                                {/* Date Column */}
+                                <div className="hidden sm:flex sm:w-24 md:w-24 lg:w-24 flex-shrink-0 pt-1 text-right pr-4 md:pr-8 pt-4">
+                                    <span className="text-xs md:text-sm font-bold text-primary-dark/80 whitespace-nowrap">{item.year}</span>
                                 </div>
 
-                                <div className="bg-gray-50 p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] border border-gray-100 shadow-sm">
-                                    <h3 className="text-xl md:text-2xl font-black text-primary-dark mb-8 md:mb-10 uppercase tracking-tighter border-b-4 border-primary-orange inline-block">Key Milestones</h3>
-                                    <div className="space-y-6 md:space-y-8">
-                                        {positions.map((item, idx) => (
-                                            <div key={idx} className="flex gap-4 md:gap-6 items-start">
-                                                <div className="text-primary-orange font-black text-[10px] md:text-xs uppercase tracking-widest pt-1 min-w-[80px] md:min-w-[100px]">{item.period}</div>
-                                                <div className="text-primary-dark font-black text-xs md:text-sm uppercase leading-tight tracking-tight">{item.role}</div>
-                                            </div>
-                                        ))}
+                                {/* Marker */}
+                                <div className="absolute left-[11px] sm:left-[91px] top-4 md:top-5 z-10 hidden sm:block">
+                                    <div className="w-3 h-3 rounded-full border-2 border-primary-orange bg-white group-hover:bg-primary-orange transition-colors duration-300 ring-4 ring-white"></div>
+                                </div>
+
+                                {/* Content Grid */}
+                                <div className="flex-grow sm:pl-8 md:pl-12 pb-6 sm:pb-10 flex flex-col md:flex-row gap-4 md:gap-8 items-center md:items-start text-center md:text-left">
+                                    {/* Mobile Date */}
+                                    <div className="sm:hidden flex items-center gap-2 mb-1">
+                                        <Calendar className="w-3 h-3 text-primary-orange" />
+                                        <span className="text-xs font-bold text-primary-dark">{item.year}</span>
+                                    </div>
+
+                                    {/* Text Content */}
+                                    <div className="flex-1 space-y-1">
+                                        <h3 className="text-lg md:text-xl font-normal font-serif text-primary-dark leading-tight group-hover:text-primary-orange transition-colors duration-300">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-gray-600 text-[11px] md:text-xs lg:text-[13px] leading-relaxed font-medium opacity-90">
+                                            {item.content}
+                                        </p>
+                                    </div>
+
+                                    {/* Image Section */}
+                                    <div className="w-full md:w-32 lg:w-40 flex-shrink-0 overflow-hidden rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-300">
+                                        <img 
+                                            src={item.image} 
+                                            alt={item.title}
+                                            className="w-full h-24 md:h-28 lg:h-32 object-cover transform group-hover:scale-105 transition-transform duration-500"
+                                            loading="lazy"
+                                        />
                                     </div>
                                 </div>
                             </div>
-                        </aside>
+                        ))}
+                    </div>
 
-                        {/* Timeline and Details */}
-                        <div className="w-full lg:w-2/3">
-                            <div className="prose prose-lg md:prose-2xl prose-orange max-w-none mb-12 text-primary-dark">
-                                <h2 className="text-3xl md:text-5xl font-black text-primary-dark mb-8 md:mb-12 tracking-tighter uppercase">From Mahout's Son to Speaker</h2>
-                                <p className="text-gray-500 leading-relaxed font-medium mb-12 text-lg md:text-2xl">
-                                    The life story of Biswajit Daimary is one of exceptional perseverance and vision. From his roots in Suagpur to the halls of the Parliament, his journey reflects the aspirations of millions in Assam.
-                                </p>
-                            </div>
+                    {/* Bottom Section: Professional Journey Highlights */}
+                    <div className="mt-8">
+                        <div className="bg-gray-50/50 p-6 md:p-8 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-primary-orange opacity-[0.03] blur-3xl -mr-32 -mt-32"></div>
+                            
+                            <h3 className="text-xl font-normal font-serif text-primary-dark mb-8 flex items-center gap-3">
+                                <Award className="w-6 h-6 text-primary-orange" />
+                                Professional Journey & Key Roles
+                            </h3>
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                                {positions.map((item, idx) => {
+                                    // Assigning icons based on keywords for a more professional look
+                                    let RoleIcon = Award;
+                                    if (item.role.toLowerCase().includes('teacher')) RoleIcon = GraduationCap;
+                                    if (item.role.toLowerCase().includes('speaker')) RoleIcon = Landmark;
+                                    if (item.role.toLowerCase().includes('chairman')) RoleIcon = Building2;
+                                    if (item.role.toLowerCase().includes('parliament') || item.role.toLowerCase().includes('sabha')) RoleIcon = Shield;
 
-                            <div ref={timelineRef} className="space-y-6 mb-16 md:mb-24">
-                                {timelineData.map((item, idx) => (
-                                    <div
-                                        key={idx}
-                                        className={`group flex flex-col sm:flex-row gap-6 md:gap-10 p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] hover:bg-orange-50 transition-all border border-transparent hover:border-primary-orange/10 animate-on-scroll animate-delay-${Math.min(idx + 1, 4)}`}
-                                    >
-                                        <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-primary-orange/10 text-primary-orange rounded-2xl md:rounded-3xl flex items-center justify-center group-hover:bg-primary-orange group-hover:text-white transition-all transform group-hover:rotate-6">
-                                            <item.icon className="w-7 h-7 md:w-8 md:h-8" />
-                                        </div>
-                                        <div>
-                                            <div className="text-primary-orange font-black text-[10px] md:text-xs uppercase tracking-[0.2em] mb-2">{item.year}</div>
-                                            <h4 className="text-xl md:text-2xl font-black text-primary-dark mb-4 uppercase tracking-tight">{item.title}</h4>
-                                            <p className="text-gray-500 font-medium leading-relaxed text-sm md:text-base">{item.content}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* Public Initiatives */}
-                            <div ref={initiativesRef} className="bg-primary-dark rounded-[2.5rem] md:rounded-[4rem] p-10 md:p-24 text-white overflow-hidden relative animate-on-scroll">
-                                <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-primary-orange opacity-10 blur-3xl -mr-32 md:-mr-48 -mt-32 md:-mt-48 transition-all duration-1000"></div>
-                                <h2 className="text-3xl md:text-5xl font-black mb-12 md:mb-16 uppercase tracking-tighter relative z-10 text-white">Public Initiatives</h2>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 relative z-10">
-                                    {initiatives.map((item, idx) => (
-                                        <div key={idx} className="space-y-3 md:space-y-4">
-                                            <div className="w-10 h-10 md:w-12 md:h-12 bg-primary-orange/20 text-primary-orange rounded-xl md:rounded-2xl flex items-center justify-center">
-                                                <item.icon className="w-5 h-5 md:w-6 md:h-6" />
+                                    return (
+                                        <div key={idx} className="flex gap-4 items-start group">
+                                            <div className="flex-shrink-0 w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm border border-gray-100 group-hover:bg-primary-orange transition-colors duration-300">
+                                                <RoleIcon className="w-5 h-5 text-primary-orange group-hover:text-white transition-colors duration-300" />
                                             </div>
-                                            <h4 className="text-lg md:text-xl font-black uppercase tracking-tight text-white">{item.title}</h4>
-                                            <p className="text-gray-400 font-medium leading-relaxed text-sm md:text-base">{item.desc}</p>
+                                            <div className="flex-grow">
+                                                <div className="text-primary-orange font-bold text-[10px] uppercase tracking-[0.15em] mb-1">{item.period}</div>
+                                                <div className="text-primary-dark font-semibold text-xs md:text-[13px] leading-tight break-words">{item.role}</div>
+                                            </div>
                                         </div>
-                                    ))}
-                                </div>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
@@ -188,6 +236,5 @@ const Biography = () => {
         </div>
     );
 };
-
 
 export default Biography;

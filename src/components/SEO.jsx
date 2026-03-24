@@ -23,9 +23,9 @@ const SEO = ({ title, description, keywords, image, url, type = "website" }) => 
             "url": siteUrl,
             "image": "https://newslivetv.com/wp-content/uploads/2021/02/Assam-Biswajit-Daimary-to-be-BJP-candidate-for-Rajya-Sabha-by-polls.jpg",
             "sameAs": [
-                "https://twitter.com/BiswajitDaimar5",
-                "https://www.facebook.com/BiswajitDaimaryOfficial/",
-                "https://www.instagram.com/biswajitdaimaryofficial/"
+                "https://x.com/BiswajitDaimar5",
+                "https://www.facebook.com/BiswajitdaimaryMP/",
+                "https://www.instagram.com/biswajitdaimary_/"
             ]
         }
     ];

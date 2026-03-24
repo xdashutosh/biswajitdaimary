@@ -32,7 +32,7 @@ const NewsSection = () => {
                 <div className="flex justify-between items-end mb-12">
                     <div>
                         <h3 className="text-primary-orange font-bold uppercase tracking-widest mb-2">Updates</h3>
-                        <h2 className="text-4xl font-bold text-primary-dark">Latest News & Media</h2>
+                        <h2 className="text-3xl font-bold text-primary-dark">Latest News & Media</h2>
                     </div>
                     <Link to="/news" className="text-primary-orange font-bold hover:underline mb-1">View All News →</Link>
                 </div>
