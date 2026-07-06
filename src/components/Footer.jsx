@@ -69,7 +69,7 @@ const Footer = () => {
                                 Assam, India
                             </p>
                             <p className="text-primary-orange font-black text-[10px] md:text-xs tracking-tight break-words">
-                                office@biswajitdaimary.in
+                                support@biswajitdaimary.in
                             </p>
                         </div>
 

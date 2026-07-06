@@ -63,7 +63,7 @@ const Contact = () => {
                                                 </div>
                                                 <div>
                                                     <h4 className="font-bold text-base md:text-lg text-white mb-0.5 font-serif uppercase tracking-wider">Email</h4>
-                                                    <p className="text-primary-orange font-bold text-xs md:text-sm drop-shadow-sm">office@biswajitdaimary.in</p>
+                                                    <p className="text-primary-orange font-bold text-xs md:text-sm drop-shadow-sm">support@biswajitdaimary.in</p>
                                                     <p className="text-white/60 text-[10px] font-bold uppercase tracking-widest mt-0.5 opacity-100">Direct inquiries to the Speaker's Cell</p>
                                                 </div>
                                             </div>

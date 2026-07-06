@@ -59,7 +59,7 @@ const PrivacyPolicy = () => {
                         <div className="bg-orange-50 p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-primary-orange/20 mt-12 shadow-sm">
                             <h3 className="text-lg md:text-xl font-black text-primary-dark mb-3 uppercase tracking-tight">Need Clarification?</h3>
                             <p className="mb-4 text-sm md:text-base text-gray-500 leading-relaxed">If you have any questions about this Privacy Policy, please contact the official IT cell of the Speaker's Office.</p>
-                            <p className="font-black text-primary-orange tracking-tight">it-cell@biswajitdaimary.in</p>
+                            <p className="font-black text-primary-orange tracking-tight">support@biswajitdaimary.in</p>
                         </div>
                     </div>
                 </div>
